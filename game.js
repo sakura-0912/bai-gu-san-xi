@@ -276,6 +276,20 @@
     }
   };
 
+  const PORTRAIT_BY_SPEAKER = {
+    "山野": "narrator",
+    "村姑": "village",
+    "老妇": "mother",
+    "老翁": "father",
+    "悟空": "wukong",
+    "唐僧": "tangseng",
+    "猪八戒": "bajie",
+    "沙僧": "wujing",
+    "白骨夫人": "bone",
+    "山神": "god",
+    "战报": "battle"
+  };
+
   const INTERLUDES = {
     bajie: {
       speaker: "猪八戒",
@@ -630,6 +644,7 @@
   let settings = loadSettings();
   let audio = new SoundEngine();
   let busy = false;
+  let poseTimer = null;
   let currentActions = [];
   let toastTimer = null;
   let modal = null;
@@ -746,7 +761,14 @@
 
   function setDialogue(entry) {
     els.speakerSeal.className = "speaker-seal " + (entry.sealClass || "");
-    els.speakerSeal.textContent = entry.seal || "叙";
+    const portrait = PORTRAIT_BY_SPEAKER[entry.speaker] || "narrator";
+    els.speakerSeal.innerHTML =
+      '<svg class="portrait-svg" viewBox="0 0 100 120" preserveAspectRatio="xMidYMid slice">' +
+      '<use href="#portrait-' +
+      portrait +
+      '"></use></svg><span class="portrait-glyph">' +
+      (entry.seal || "叙") +
+      "</span>";
     els.speakerName.textContent = entry.speaker || "山野";
     els.speakerRole.textContent = entry.role || "";
     els.dialogueText.textContent = entry.text || "";
@@ -898,6 +920,20 @@
     els.actionArea.innerHTML = "";
   }
 
+  function clearPose() {
+    window.clearTimeout(poseTimer);
+    ["strike", "protect", "reveal", "hurt"].forEach((name) => els.stage.classList.remove("pose-" + name));
+  }
+
+  function flashPose(name, duration = 720) {
+    clearPose();
+    void els.stage.offsetWidth;
+    els.stage.classList.add("pose-" + name);
+    poseTimer = window.setTimeout(() => {
+      els.stage.classList.remove("pose-" + name);
+    }, duration);
+  }
+
   function renderPrologue() {
     setScreenClass("game");
     state.view.screen = "prologue";
@@ -941,6 +977,7 @@
     state.view.prologueStep = 0;
     state.view.interludeResolved = false;
     state.view.interludeChoice = null;
+    clearPose();
     const trial = R.currentTrial(state);
     const content = TRIAL_CONTENT[trial.id];
     setScreenClass("game");
@@ -1124,6 +1161,7 @@
     state.view.resultKind = kind;
     state.view.vision = false;
     state.screen = "result";
+    flashPose(kind === "reveal" ? "reveal" : kind === "strike" ? "strike" : "protect", 760);
     renderResult();
     if (kind === "reveal") {
       audio.sfx(state.lastResult.maskBroken ? "break" : "trust-up");
@@ -1513,6 +1551,15 @@
       showToast(error.message, 1800);
       return;
     }
+    if (action === "strike" || action === "three") {
+      flashPose("strike", 760);
+    } else if (action === "guard") {
+      flashPose("protect", 760);
+    } else if (action === "evidence") {
+      flashPose("reveal", 760);
+    } else {
+      flashPose("protect", 620);
+    }
     updateHud();
     updateBattleBars();
     const after = state.boss;
@@ -1545,6 +1592,7 @@
     }
     if (playerDamage > 0 || masterDamage > 0) {
       audio.sfx("hurt");
+      window.setTimeout(() => flashPose("hurt", 460), 180);
     }
 
     if (state.screen === "ending") {
