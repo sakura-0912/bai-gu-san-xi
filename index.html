@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171713">
+  <meta name="description" content="白骨三戏 · 火眼：三打白骨精网页叙事 RPG">
+  <title>白骨三戏 · 火眼</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app" class="app" data-screen="title" data-trial="village" data-vision="off">
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="screen-vignette" aria-hidden="true"></div>
+
+    <section id="titleScreen" class="screen title-screen" aria-labelledby="gameTitle">
+      <svg class="title-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="titleSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#20231f"/>
+            <stop offset=".48" stop-color="#4b4c40"/>
+            <stop offset="1" stop-color="#c9bfa6"/>
+          </linearGradient>
+          <radialGradient id="titleMoon">
+            <stop offset="0" stop-color="#f2e8cc" stop-opacity=".95"/>
+            <stop offset=".58" stop-color="#e9ddc0" stop-opacity=".36"/>
+            <stop offset="1" stop-color="#e9ddc0" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="titleRough">
+            <feTurbulence type="fractalNoise" baseFrequency=".012 .06" numOctaves="3" seed="7" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="10"/>
+          </filter>
+          <filter id="titleBlur"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+        <rect width="1600" height="900" fill="url(#titleSky)"/>
+        <circle cx="1220" cy="210" r="235" fill="url(#titleMoon)"/>
+        <circle cx="1220" cy="210" r="92" fill="#efe4c8" opacity=".83"/>
+        <g opacity=".3" fill="none" stroke="#ece2c8" stroke-width="2">
+          <path d="M140 236c65-20 122 4 182-9 44-10 86-32 132-21"/>
+          <path d="M980 292c64-17 103 15 171 3 46-8 89-22 130-5"/>
+          <path d="M320 365c44-14 86 3 132-7 30-6 50-13 79-5"/>
+        </g>
+        <g filter="url(#titleRough)">
+          <path d="M0 620 118 472l85 94 122-162 132 160 102-88 122 114 128-190 118 142 116-75 168 154 129-112 168 132v257H0Z" fill="#6c6d5f" opacity=".58"/>
+          <path d="M0 690 140 568l105 72 105-118 120 120 94-58 128 112 111-146 116 114 154-78 126 88 141-62 126 102 128-74v200H0Z" fill="#343731" opacity=".8"/>
+        </g>
+        <g fill="#151915" opacity=".9">
+          <path d="M205 790v-248l25 14 17-41 14 55 35 17v203h-30V657l-13-34-13 34v133Z"/>
+          <path d="M1332 790V548l20 20 18-55 20 66 38 5v206h-26V639l-19-29-17 34v146Z"/>
+          <path d="M84 790c58-108 92-136 141-159 49 25 82 68 123 159Z" opacity=".35"/>
+          <path d="M1300 790c44-91 76-141 136-171 56 33 103 86 137 171Z" opacity=".32"/>
+        </g>
+        <path d="M0 810c216-56 405-39 577-7 176 33 361 36 545-1 170-35 333-43 478 12v86H0Z" fill="#171713"/>
+        <g opacity=".54" filter="url(#titleBlur)" fill="#d9d2bd">
+          <path d="M0 680c256-94 413-113 620-91 216 24 326 67 519 48 188-19 307-27 461 27v116c-205-58-336-53-520-31-194 23-351 1-550-29C291 685 135 700 0 746Z"/>
+          <path d="M0 742c219-62 424-67 626-45 197 22 349 48 522 20 165-27 292-34 452 12v86H0Z" opacity=".46"/>
+        </g>
+        <g class="title-bone" opacity=".24">
+          <path d="M1065 790c-45-80-50-173-9-249 29-54 89-92 151-111 78-24 171 4 208 74 38 72 17 171-33 234-34 43-83 62-137 65l-180-13Z" fill="#e9e0cc"/>
+          <path d="M1152 448c32-31 69-42 106-36 29 5 61 22 80 49-33-5-63 0-93 12-34 13-64 34-93 13Z" fill="#f1e9d8"/>
+          <ellipse cx="1197" cy="515" rx="25" ry="18" fill="#151915"/>
+          <ellipse cx="1286" cy="515" rx="25" ry="18" fill="#151915"/>
+          <path d="M1210 585c20 14 45 14 65-2-3 27-13 44-31 50-20-7-30-23-34-48Z" fill="#151915" opacity=".72"/>
+          <g stroke="#151915" stroke-width="3" opacity=".45">
+            <path d="M1168 462v-64m35 54v-77m35 77v-61m34 75v-46"/>
+            <path d="M1160 555c36 9 63 9 101-4M1169 601c22 7 42 7 63 0"/>
+          </g>
+        </g>
+        <g fill="#f4ecd8" opacity=".22">
+          <circle cx="273" cy="330" r="2.5"/><circle cx="468" cy="220" r="2"/><circle cx="744" cy="312" r="2.5"/>
+          <circle cx="933" cy="187" r="2"/><circle cx="1403" cy="358" r="2.4"/><circle cx="1084" cy="246" r="1.8"/>
+        </g>
+      </svg>
+      <div class="title-ink" aria-hidden="true"></div>
+      <div class="title-content">
+        <p class="title-eyebrow">西游记 · 第二十七回</p>
+        <div class="title-lockup">
+          <h1 id="gameTitle" class="game-title"><span>白骨三戏</span><em>火眼</em></h1>
+          <div class="title-seal" aria-hidden="true">悟<br>空</div>
+        </div>
+        <p class="title-subtitle">看得见妖，未必有人信。</p>
+        <p class="title-copy">白虎岭上，三张假面，一纸贬书。你执金箍棒，也执唯一的真相。</p>
+        <div class="title-actions">
+          <button id="newGameBtn" class="btn btn-primary btn-large" type="button">入岭</button>
+          <button id="continueBtn" class="btn btn-ghost btn-large is-hidden" type="button">续行</button>
+          <button id="helpBtnTitle" class="btn btn-ghost" type="button">玩法</button>
+        </div>
+        <p class="title-footnote">单机 · 无内购 · 静音可通关</p>
+      </div>
+      <div class="title-side-note" aria-hidden="true"><span>尸魔三戏唐三藏</span><span>圣僧恨逐美猴王</span></div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen is-hidden" aria-label="白骨三戏游戏场景">
+      <header id="hud" class="hud">
+        <div class="chapter-block">
+          <p id="chapterEyebrow" class="chapter-eyebrow">白虎岭 · 山道</p>
+          <h2 id="chapterTitle" class="chapter-title">第一试 · 村姑送斋</h2>
+        </div>
+        <div class="hud-status">
+          <div class="trust-meter" aria-label="师父信任">
+            <span class="hud-label">心印</span>
+            <div id="trustPips" class="trust-pips" aria-hidden="true"></div>
+            <b id="trustText">3/5</b>
+          </div>
+          <div class="hud-stat"><span>破绽</span><b id="clueText">0/3</b></div>
+          <div class="hud-stat"><span>证据</span><b id="evidenceText">0/3</b></div>
+          <div class="hud-stat"><span>法眼</span><b id="insightText">3</b></div>
+          <div class="hud-tools">
+            <button id="soundBtn" class="icon-btn" type="button" aria-label="切换声音">音</button>
+            <button id="menuBtn" class="icon-btn" type="button" aria-label="打开菜单">≡</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="stage-wrap">
+        <div id="stage" class="stage" data-scene="village">
+          <svg id="sceneArt" class="scene-art" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d8ceb4"/>
+                <stop offset=".55" stop-color="#c8bea5"/>
+                <stop offset="1" stop-color="#a9a087"/>
+              </linearGradient>
+              <radialGradient id="moonGlow">
+                <stop offset="0" stop-color="#f4ead1" stop-opacity=".9"/>
+                <stop offset=".5" stop-color="#f4ead1" stop-opacity=".22"/>
+                <stop offset="1" stop-color="#f4ead1" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8f9383" stop-opacity=".58"/>
+                <stop offset="1" stop-color="#6d7266" stop-opacity=".24"/>
+              </linearGradient>
+              <linearGradient id="ridgeMid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4f554b" stop-opacity=".8"/>
+                <stop offset="1" stop-color="#2a2e28" stop-opacity=".56"/>
+              </linearGradient>
+              <filter id="inkRough" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency=".011 .07" numOctaves="3" seed="11" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="9"/>
+              </filter>
+              <filter id="inkSoft"><feGaussianBlur stdDeviation="4"/></filter>
+              <filter id="fogBlur"><feGaussianBlur stdDeviation="20"/></filter>
+              <filter id="auraBlur"><feGaussianBlur stdDeviation="10"/></filter>
+              <filter id="paperCut">
+                <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="5" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4"/>
+              </filter>
+            </defs>
+
+            <rect class="sky-fill" width="1600" height="900" fill="url(#skyGrad)"/>
+            <circle cx="1300" cy="175" r="220" fill="url(#moonGlow)"/>
+            <circle cx="1300" cy="175" r="80" fill="#eee3c8" opacity=".8"/>
+            <g class="cloud-threads" fill="none" stroke="#f1e8d1" stroke-width="2" opacity=".28">
+              <path d="M80 220c110-28 183 19 279-7 69-19 118-28 196-10"/>
+              <path d="M890 270c91-24 151 2 225-9 52-9 97-23 144-12"/>
+              <path d="M320 375c75-18 126 4 206-3"/>
+            </g>
+            <g class="mountain-far" filter="url(#inkRough)">
+              <path d="M0 590 112 470l84 76 109-147 126 145 94-73 142 118 122-169 128 155 114-79 150 121 144-117 175 119v218H0Z" fill="url(#ridgeFar)"/>
+            </g>
+            <g class="mountain-mid" filter="url(#inkRough)">
+              <path d="M0 682 146 552l86 72 112-120 107 113 105-56 118 107 126-139 117 123 125-72 130 94 121-63 117 82 110-46v179H0Z" fill="url(#ridgeMid)"/>
+            </g>
+            <g class="pines" fill="#171b17">
+              <path d="M193 804V606l17 8 11-42 12 52 29 14v166h-22V674l-12-28-12 31v127Z"/>
+              <path d="M1461 804V534l16 16 14-54 17 63 32 8v237h-22V625l-17-30-15 36v173Z"/>
+              <path d="M1390 690c-33-30-57-60-64-97 47 28 85 57 117 97Zm56 10c-7-50 14-92 45-125-4 54-16 94-45 125Z" opacity=".72"/>
+              <path d="M241 690c-38-26-59-54-65-89 42 20 78 49 107 84Zm57 2c-2-43 14-78 42-107-3 47-17 83-42 107Z" opacity=".66"/>
+            </g>
+            <path class="mountain-path" d="M0 885c193-44 302-84 436-134 82-31 157-69 244-75 104-7 191 37 289 64 108 30 218 39 631 47v113H0Z" fill="#8d8370" opacity=".55"/>
+            <path class="mountain-path-line" d="M180 900c144-72 311-107 463-160 106-37 184-58 281-37 114 24 223 92 371 118 109 20 217 19 305 10" fill="none" stroke="#6a6354" stroke-width="3" opacity=".34"/>
+
+            <g class="party" filter="url(#paperCut)">
+              <g class="figure wukong" transform="translate(290 535)">
+                <path d="M-20 255c-22-12-35-30-28-61 7-32 31-54 28-83-3-30-24-49-18-66 6-18 30-25 44-12 14 13 12 41 6 65-5 24-2 52 15 77 17 25 22 55 9 79Z" fill="#7b2e26" opacity=".94"/>
+                <path d="M-4 255c-7-41-3-86 10-127 7-23 5-56 16-73 9-14 27-16 38-4 12 13 10 38-1 55-9 15-7 39 2 62 11 29 11 62 6 87Z" fill="#d4b269"/>
+                <path d="M18 250c8-26 8-58 2-85-5-24-2-49 3-62 7-17 25-22 38-10 12 11 10 32 2 48-6 13-4 35 7 53 14 24 20 49 11 63Z" fill="#3a3b33"/>
+                <circle cx="25" cy="52" r="31" fill="#c99e61"/>
+                <path d="M-8 32c5-20 22-32 43-32 19 0 36 11 43 29-13-6-26-8-43-7-15 1-29 4-43 10Z" fill="#8e6a37"/>
+                <path d="M-8 40c25-9 52-9 74 0" fill="none" stroke="#b58b3f" stroke-width="7" stroke-linecap="round"/>
+                <path d="M4 63c7 7 14 10 23 10 9 0 18-4 24-11" fill="none" stroke="#5d432a" stroke-width="3"/>
+                <circle cx="14" cy="48" r="2.6" fill="#171713"/><circle cx="37" cy="48" r="2.6" fill="#171713"/>
+                <path d="M-50 73 38 310" stroke="#8e6a37" stroke-width="9" stroke-linecap="round"/>
+                <path d="M-56 65 42 318" stroke="#e2c481" stroke-width="3" stroke-linecap="round"/>
+                <path d="M8 108c17 10 29 33 25 65" fill="none" stroke="#b84a3c" stroke-width="7" opacity=".8"/>
+              </g>
+              <g class="figure tangseng" transform="translate(430 540)">
+                <path d="M-30 260c-10-51 5-122 36-178 8-14 14-22 24-23 13-1 24 9 28 27 8 37-11 93-21 127-5 18-2 34 4 47Z" fill="#ebe2cc"/>
+                <path d="M-27 259c-6-37-2-81 12-121 9-25 22-51 36-69-5 34-9 63-12 91-4 34-4 72 2 99Z" fill="#d9cfb8"/>
+                <circle cx="31" cy="36" r="23" fill="#cfa66d"/>
+                <path d="M7 31c8-21 28-29 47-18 12 7 17 19 15 31-12-8-37-15-62-13Z" fill="#d8c8a8"/>
+                <path d="M5 16c9-12 22-17 38-16 17 1 30 10 38 24-22-5-50-6-76-8Z" fill="#6f322b"/>
+                <path d="M11 19c8-6 18-8 30-7 13 1 23 5 32 11" fill="none" stroke="#b89854" stroke-width="3"/>
+                <path d="M-1 260c8-35 13-69 20-101 7 30 13 65 16 101Z" fill="#b9ad95" opacity=".75"/>
+                <path d="M-12 150c16 9 34 10 50 0" fill="none" stroke="#6e6555" stroke-width="2" opacity=".55"/>
+                <path d="M-54 260V77" stroke="#8d7647" stroke-width="5"/><circle cx="-54" cy="68" r="12" fill="none" stroke="#8d7647" stroke-width="4"/>
+              </g>
+              <g class="figure bajie" transform="translate(180 565)">
+                <path d="M-42 238c-18-43-11-101 17-142 21-32 55-46 84-31 28 14 38 49 31 86-8 44-33 81-53 105Z" fill="#4c4c40"/>
+                <path d="M-26 238c-10-37-5-83 14-115 15-25 36-37 55-32 20 6 25 30 19 57-8 37-30 71-49 94Z" fill="#7a7562" opacity=".72"/>
+                <circle cx="18" cy="36" r="27" fill="#a77f57"/>
+                <ellipse cx="18" cy="47" rx="18" ry="12" fill="#c39c72"/>
+                <circle cx="11" cy="47" r="3.2" fill="#27241d"/><circle cx="25" cy="47" r="3.2" fill="#27241d"/>
+                <path d="M-5 17c-11-13-22-17-30-12 7 12 16 20 27 23Zm46 0c11-13 22-17 30-12-7 12-16 20-27 23Z" fill="#8e6949"/>
+                <path d="M-14 238 36 85" stroke="#7a6846" stroke-width="6"/>
+                <path d="M-30 88c24 14 51 18 80 9" fill="none" stroke="#8d7a50" stroke-width="4"/>
+              </g>
+              <g class="figure wujing" transform="translate(500 575)">
+                <path d="M-24 220c-4-54 3-113 28-153 8-13 18-19 28-15 13 4 18 18 19 36 2 38-8 88-16 123Z" fill="#31382f"/>
+                <circle cx="28" cy="27" r="23" fill="#8e6949"/>
+                <path d="M8 14c13-11 30-10 41 3 6 8 8 17 5 25-11-7-27-16-46-15Z" fill="#282820"/>
+                <path d="M2 67c15 8 32 10 48 2" fill="none" stroke="#d3b773" stroke-width="3" opacity=".8"/>
+                <path d="M-40 220 36 50" stroke="#6f5b3d" stroke-width="6"/>
+                <path d="M-26 220c8-31 11-67 15-102" fill="none" stroke="#c6b896" stroke-width="2" opacity=".4"/>
+              </g>
+            </g>
+
+            <g class="apparition village" transform="translate(1055 535)" filter="url(#paperCut)">
+              <path d="M-38 255c-10-64 1-136 21-183 13-31 31-44 52-38 27 8 36 46 33 91-4 54-22 97-42 130Z" fill="#d6c9ae"/>
+              <path d="M-21 253c-4-53 3-113 17-153 9-26 21-38 35-34 17 4 22 30 18 65-5 43-23 83-42 122Z" fill="#e5dac3"/>
+              <circle cx="26" cy="34" r="25" fill="#c79c6e"/>
+              <path d="M2 24c3-24 17-38 39-40 20-2 36 9 44 28-19-6-36-7-52-1-12 5-22 11-31 13Z" fill="#342c26"/>
+              <path d="M-3 19c9-7 16-10 24-14-5 11-6 21-4 31-9-4-15-10-20-17Z" fill="#342c26"/>
+              <path d="M21 38c6 4 12 4 18 0" fill="none" stroke="#8e4b40" stroke-width="2"/>
+              <path d="M-4 82c18 12 38 17 58 13" fill="none" stroke="#a84a3e" stroke-width="3" opacity=".64"/>
+              <path d="M-16 124c25 12 51 16 80 10" fill="none" stroke="#b79458" stroke-width="2" opacity=".7"/>
+              <path d="M26 144c14 23 18 45 19 65" fill="none" stroke="#c2a069" stroke-width="4" opacity=".8"/>
+              <ellipse cx="89" cy="150" rx="42" ry="28" fill="none" stroke="#7e5f38" stroke-width="7"/>
+              <path d="M91 123c-2-22 9-34 22-31 12 3 15 15 9 25-5 8-18 9-29 6Z" fill="#6d5839"/>
+              <path d="M-23 252c12-48 19-93 17-129" fill="none" stroke="#b9a888" stroke-width="2"/>
+              <path d="M47 252c10-42 14-85 7-122" fill="none" stroke="#b9a888" stroke-width="2"/>
+            </g>
+
+            <g class="apparition mother" transform="translate(1060 550)" filter="url(#paperCut)">
+              <path d="M-46 243c-13-49-3-99 20-131 15-21 35-31 50-23 17 9 22 35 18 66-5 40-25 75-48 95Z" fill="#555044"/>
+              <path d="M-16 240c-12-42-4-88 14-113 12-17 29-24 40-15 15 11 16 39 6 68-12 35-33 62-55 78Z" fill="#6b6452"/>
+              <circle cx="22" cy="39" r="24" fill="#b78d66"/>
+              <path d="M-3 31c5-21 20-32 40-32 17 0 31 10 39 26-18-6-37-8-55-4-9 2-17 6-24 10Z" fill="#b8aa8f"/>
+              <path d="M-2 28c-7-7-12-10-17-9 2 10 8 19 17 24Z" fill="#b8aa8f"/>
+              <path d="M17 39c5 3 10 3 15 0" fill="none" stroke="#7c4a3d" stroke-width="2"/>
+              <path d="M-4 84c18 9 35 11 53 4" fill="none" stroke="#988d73" stroke-width="3"/>
+              <path d="M-30 243c-1-47 10-87 27-114" fill="none" stroke="#8d8068" stroke-width="3" opacity=".7"/>
+              <path d="M79 238V54" stroke="#6e5636" stroke-width="7"/>
+              <path d="M79 57c-11-13-17-21-17-33" fill="none" stroke="#6e5636" stroke-width="6" stroke-linecap="round"/>
+              <path d="M-8 150c20 8 39 10 59 6" fill="none" stroke="#b8a16e" stroke-width="2" opacity=".55"/>
+            </g>
+
+            <g class="apparition father" transform="translate(1075 555)" filter="url(#paperCut)">
+              <path d="M-49 242c-8-45 0-94 19-125 15-24 39-36 57-26 17 10 22 36 15 68-9 40-35 70-67 86Z" fill="#5b574a"/>
+              <path d="M-18 240c-10-38-2-80 16-104 13-17 30-23 41-14 14 12 14 38 4 65-12 33-33 58-57 72Z" fill="#706954"/>
+              <circle cx="21" cy="35" r="23" fill="#b58b63"/>
+              <path d="M-2 24c9-19 25-27 43-24 13 2 23 10 29 21-20-4-40-4-57 2Z" fill="#d4c8ae"/>
+              <path d="M-7 49c-2 24 4 38 19 47 16 10 31 7 43-5 10-10 14-26 11-42-12 7-25 9-40 7-13-2-24-4-33-7Z" fill="#d9cfb7"/>
+              <path d="M11 52c5 3 11 3 16 0" fill="none" stroke="#735044" stroke-width="2"/>
+              <path d="M-4 91c18 11 35 15 54 10" fill="none" stroke="#9b8f75" stroke-width="3"/>
+              <path d="M76 239V50" stroke="#6a5437" stroke-width="7"/>
+              <path d="M76 60c8-11 16-18 26-20" fill="none" stroke="#6a5437" stroke-width="6" stroke-linecap="round"/>
+              <path d="M-15 144c18 8 34 11 52 8" fill="none" stroke="#bba36c" stroke-width="2" opacity=".6"/>
+              <g fill="none" stroke="#c0a56b" stroke-width="2" opacity=".62">
+                <circle cx="29" cy="112" r="3"/><circle cx="38" cy="122" r="3"/><circle cx="29" cy="132" r="3"/>
+                <path d="M29 115v14m0-4 9 7m-9-7-9 7"/>
+              </g>
+            </g>
+
+            <g class="cave-gate" opacity="0">
+              <path d="M1380 710V482c0-90 73-161 163-161s163 71 163 161v228Z" fill="#252621" opacity=".5"/>
+              <path d="M1410 710V486c0-74 59-132 133-132s133 58 133 132v224Z" fill="#171916"/>
+              <path d="M1426 710V491c0-65 52-117 117-117s117 52 117 117v219Z" fill="#070907" opacity=".8"/>
+              <path d="M1475 710V558c0-35 29-63 64-63s64 28 64 63v152Z" fill="#1d201b" opacity=".9"/>
+              <path d="M1393 493c38-47 91-71 151-71 58 0 110 23 150 68" fill="none" stroke="#a59b84" stroke-width="4" opacity=".3"/>
+              <g fill="none" stroke="#8b806b" stroke-width="3" opacity=".38">
+                <path d="M1452 652c9 8 13 20 11 36m28-47c-6 12-8 25-6 40m-42 8c12 5 25 7 39 5m-33 20c9 3 18 4 27 2"/>
+                <path d="M1480 723c14-16 32-24 54-24" opacity=".6"/>
+              </g>
+            </g>
+
+            <g class="fog-layer" aria-hidden="true">
+              <path class="fog fog-a" d="M-180 724c218-95 403-58 589-33 177 24 309 21 478-14 193-41 396-19 540 37 130 51 196 63 285 42v130H-180Z" fill="#eee6d3" opacity=".26" filter="url(#fogBlur)"/>
+              <path class="fog fog-b" d="M-120 800c226-73 416-45 617-9 210 38 340 10 517-27 178-37 342-18 478 22 61 18 111 18 166 2v112H-120Z" fill="#d7cdb8" opacity=".22" filter="url(#fogBlur)"/>
+            </g>
+
+            <g class="bone-aura" opacity="0">
+              <ellipse cx="1100" cy="520" rx="365" ry="326" fill="#9b2f28" opacity=".11" filter="url(#auraBlur)"/>
+              <g fill="none" stroke="#f2e8d3" stroke-width="7" opacity=".58">
+                <circle cx="1100" cy="512" r="206"/>
+                <circle cx="1100" cy="512" r="172" stroke-dasharray="18 15"/>
+                <circle cx="1100" cy="512" r="238" stroke-dasharray="4 19" opacity=".42"/>
+              </g>
+              <g fill="#e8dfcb" opacity=".8">
+                <path d="M1035 329c19-28 44-36 66-27 24 10 34 31 28 56-8 31-36 50-65 42-27-8-41-40-29-71Z"/>
+                <path d="M1064 337c8-7 17-7 25 0-2 13-8 21-16 24-9-4-13-13-9-24Z" fill="#181a17"/>
+                <path d="M1071 361c6 3 11 3 16 0" fill="none" stroke="#181a17" stroke-width="2"/>
+              </g>
+            </g>
+
+            <g class="boss-demon" opacity="0" filter="url(#paperCut)" transform="translate(145 18) scale(.88 1.035)">
+              <g fill="#171916" opacity=".82">
+                <path d="M1110 438c-58 27-99 83-117 159-12 51-4 111 25 166 16-93 50-165 110-219Z"/>
+                <path d="M1320 428c61 31 99 91 111 169 8 50-1 110-28 164-13-92-43-165-101-222Z"/>
+                <path d="M1180 324c-39 42-48 92-29 151 12-57 34-104 70-140Zm87-8c37 47 45 101 22 162-15-59-39-105-76-139Z"/>
+              </g>
+
+              <path d="M1027 790c-6-116 29-229 104-310 44-47 99-76 158-83 62-8 123 13 167 57 55 54 77 133 63 217-13 83-57 154-119 201-56 42-119 63-187 64-74 1-139-20-186-61Z" fill="#d8cfbb"/>
+              <path d="M1074 790c-9-111 23-209 91-282 43-46 98-73 157-77 53-4 103 13 141 48 48 44 69 112 59 182-10 72-46 134-99 177-49 39-107 59-169 60-69 1-131-19-180-58Z" fill="#e9e0cc"/>
+              <path d="M1110 790c-1-98 25-180 82-243 44-49 99-74 157-73 52 1 100 19 135 53 43 43 60 104 50 167-10 62-42 116-88 153-46 36-99 53-155 53-68 0-128-20-181-60Z" fill="#f2e9d5" opacity=".72"/>
+              <path d="M1160 790c-10-99 11-178 61-239 38-47 88-70 145-67 50 3 94 25 124 59 35 39 46 95 32 151-13 55-47 100-91 127-42 26-89 38-138 35-53-3-100-24-133-66Z" fill="#e6ddc9"/>
+
+              <path d="M1040 764c-93-38-148-100-166-181 58 28 105 65 141 111l57 55Z" fill="#e2d9c5"/>
+              <path d="M1044 764c-49-37-81-82-96-135 34 20 62 48 84 83l37 43Z" fill="#f1e8d4" opacity=".7"/>
+              <path d="M1322 748c78-51 127-122 145-211-55 40-96 87-123 142l-46 79Z" fill="#e2d9c5"/>
+              <path d="M1337 749c44-43 72-93 83-151-33 27-57 61-71 101l-27 53Z" fill="#f1e8d4" opacity=".64"/>
+              <g fill="#171916">
+                <path d="M910 609c-11-19-9-35 6-49 17 10 28 26 31 47-12 4-24 5-37 2Zm26 22c-15-12-22-27-21-44 18 4 33 15 45 33-8 5-16 9-24 11Z"/>
+                <path d="M1455 573c8-20 23-34 43-39 3 15-6 34-26 55-6-5-12-11-17-16Zm-15 33c7-18 19-32 37-42 0 17-11 34-32 51-2-3-4-6-5-9Z"/>
+              </g>
+
+              <path d="M1163 442c-10-48 4-96 38-132 31-33 77-45 117-29 35 14 59 46 63 86 4 42-14 83-46 108-25 20-56 29-87 25-41-5-72-25-85-58Z" fill="#f0e7d3"/>
+              <path d="M1178 439c-7-38 4-75 29-103 25-27 61-36 92-24 27 11 45 36 48 67 3 33-11 65-36 84-20 16-45 23-69 20-32-4-55-19-64-44Z" fill="#f7efdc"/>
+              <path d="M1179 365 1188 338 1212 327 1232 346 1223 371 1201 382 1186 378Z" fill="#11130f"/>
+              <path d="M1248 347 1265 331 1292 336 1305 354 1294 377 1271 384 1255 371Z" fill="#11130f"/>
+              <path d="M1217 379 1231 412 1201 415Z" fill="#11130f"/>
+              <path d="M1199 432c15-5 35-5 54-1l11 3-11 7c-18 4-37 4-54-1l-8-4Z" fill="#11130f"/>
+              <path d="M1208 436v12m11-15v16m11-16v16m11-13v13" stroke="#f3ead8" stroke-width="2" opacity=".72"/>
+              <path d="M1203 369c-2 18-6 31-12 40M1276 372c3 17 6 28 11 38" fill="none" stroke="#6e6554" stroke-width="2" opacity=".5"/>
+              <g fill="none" stroke="#5e5749" stroke-width="2" opacity=".55">
+                <path d="M1184 326c20-10 41-12 62-5M1264 400c10 11 14 24 12 39M1190 407c15 8 30 12 46 10"/>
+                <path d="M1211 294c-18 10-29 27-32 49M1276 298c18 14 27 33 27 57"/>
+              </g>
+              <path d="M1206 464c16-7 31-6 44 2-2 24-11 41-26 50-15-10-21-28-18-52Z" fill="#e4dbc7"/>
+              <path d="M1212 469c11-4 21-3 31 2-1 15-7 26-17 32-9-7-14-19-14-34Z" fill="#c7bda8" opacity=".74"/>
+
+              <path d="M1148 319 1098 190l45 54 4-108 37 101 22-121 33 119 37-107-2 120 57-65-30 127Z" fill="#ded5c1" stroke="#171916" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M1122 322c31-20 74-30 120-30 45 0 86 10 116 28" fill="none" stroke="#b7ad98" stroke-width="7" opacity=".72"/>
+
+              <path d="M1122 488c55-42 139-54 206-30 37 13 66 34 84 62" fill="none" stroke="#f5ecd9" stroke-width="18" stroke-linecap="round" opacity=".9"/>
+              <path d="M1122 488c55-42 139-54 206-30 37 13 66 34 84 62" fill="none" stroke="#171916" stroke-width="3" opacity=".35"/>
+              <g fill="none" stroke="#171916" stroke-width="3" opacity=".38">
+                <path d="M1168 584c45 17 92 20 138 8M1162 616c49 18 98 20 149 6M1160 648c50 17 101 19 153 3"/>
+                <path d="M1192 552c26 7 53 9 80 5M1204 683c25 6 51 6 77 0"/>
+              </g>
+              <path d="M1146 718c18-44 46-82 82-113 36 33 63 73 79 118" fill="none" stroke="#f3ead8" stroke-width="15" opacity=".62"/>
+
+              <g class="bone-masks" opacity=".8">
+                <g transform="translate(966 490) rotate(-15)">
+                  <path d="M-48 0c0-37 23-63 55-63 33 0 56 26 56 63 0 32-18 57-46 66-23 8-47 0-57-19C-46 33-48 17-48 0Z" fill="#efe6d2" stroke="#302c24" stroke-width="2"/>
+                  <path d="M-28-14 -10-23 2-10 -15-2Z" fill="#151713"/>
+                  <path d="M8-20 26-25 32-9 14-3Z" fill="#151713"/>
+                  <path d="M-8 24c12-3 24-3 35 1" fill="none" stroke="#151713" stroke-width="2"/>
+                  <path d="M-34-44 7-18M27-47l-14 37" stroke="#837a67" stroke-width="2"/>
+                </g>
+                <g transform="translate(1390 430) rotate(13)">
+                  <path d="M-52 0c0-38 24-64 57-64 34 0 57 27 57 64 0 33-19 59-47 67-24 7-47-2-58-21-7-14-9-30-9-46Z" fill="#eee5d1" stroke="#302c24" stroke-width="2"/>
+                  <path d="M-31-13 -13-23 0-9 -17-2Z" fill="#151713"/>
+                  <path d="M9-20 27-24 34-8 16-2Z" fill="#151713"/>
+                  <path d="M-9 26c12-3 24-3 37 0" fill="none" stroke="#151713" stroke-width="2"/>
+                  <path d="M-39-47 6-16M34-45 6-16" stroke="#837a67" stroke-width="2"/>
+                </g>
+              </g>
+
+              <path d="M1032 772c58-19 119-26 181-21 71 6 136 26 196 60" fill="none" stroke="#171916" stroke-width="4" opacity=".25"/>
+            </g>
+
+            <g class="paper-scraps" opacity="0" aria-hidden="true">
+              <path d="M1050 500l13-23 15 24-14 18Z" fill="#ebe3d1"/>
+              <path d="M1150 420l9-20 18 11-8 23Z" fill="#e8dfcb"/>
+              <path d="M1220 610l17-11 7 23-20 8Z" fill="#f1e8d7"/>
+            </g>
+          </svg>
+
+          <div class="stage-shade" aria-hidden="true"></div>
+          <div id="visionWash" class="vision-wash" aria-hidden="true"></div>
+          <div id="hotspotLayer" class="hotspot-layer"></div>
+          <div class="stage-topline">
+            <span id="stagePlace" class="stage-place">白虎岭 · 山道</span>
+            <span id="visionStatus" class="vision-status">法眼未开</span>
+          </div>
+          <div id="bossIntent" class="boss-intent is-hidden" role="status">
+            <span>白骨夫人意欲</span><b id="bossIntentText">骨爪</b>
+          </div>
+          <div id="stageCaption" class="stage-caption"></div>
+          <div id="floatLayer" class="float-layer" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <section class="play-panel" aria-label="交互区">
+        <div id="battleBars" class="battle-bars is-hidden">
+          <div class="battle-bars-side">
+            <div class="hp-line"><span>悟空</span><div class="hp-track"><i id="playerHpFill"></i></div><b id="playerHpText">75</b></div>
+            <div class="hp-line"><span>唐僧</span><div class="hp-track master"><i id="masterHpFill"></i></div><b id="masterHpText">45</b></div>
+          </div>
+          <div class="bone-rings" id="boneRings" aria-label="骨障">
+            <span data-mask="color">色相</span><span data-mask="mercy">慈相</span><span data-mask="age">老相</span>
+          </div>
+          <div class="battle-bars-side battle-boss">
+            <div class="hp-line"><span>白骨</span><div class="hp-track boss"><i id="bossHpFill"></i></div><b id="bossHpText">120</b></div>
+          </div>
+        </div>
+
+        <div class="dialogue-row">
+          <div class="speaker-seal" id="speakerSeal" aria-hidden="true">悟</div>
+          <div class="dialogue-box">
+            <div class="speaker-line"><span id="speakerName">悟空</span><span id="speakerRole">大徒弟</span></div>
+            <p id="dialogueText" class="dialogue-text" aria-live="polite">山风掠过白虎岭。</p>
+          </div>
+          <div id="evidenceTray" class="evidence-tray" aria-label="证据">
+            <span class="evidence-label">证物</span>
+            <div id="evidenceChips" class="evidence-chips"></div>
+          </div>
+        </div>
+
+        <div id="actionArea" class="action-area"></div>
+      </section>
+    </section>
+
+    <section id="endingScreen" class="screen ending-screen is-hidden" aria-labelledby="endingTitle">
+      <div class="ending-ink" aria-hidden="true"></div>
+      <div class="ending-ribbon" aria-hidden="true"></div>
+      <article class="ending-scroll">
+        <p id="endingKicker" class="ending-kicker">白虎岭 · 结局</p>
+        <h2 id="endingTitle" class="ending-title">火眼同心</h2>
+        <div id="endingSeal" class="ending-seal" aria-hidden="true">证</div>
+        <div id="endingText" class="ending-text"></div>
+        <p id="endingQuote" class="ending-quote"></p>
+        <div id="endingStats" class="ending-stats"></div>
+        <div class="ending-actions">
+          <button id="restartBtn" class="btn btn-primary btn-large" type="button">重走此岭</button>
+          <button id="endingTitleBtn" class="btn btn-ghost" type="button">回到标题</button>
+        </div>
+      </article>
+    </section>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="modalRoot"></div>
+  </div>
+
+  <script src="./rules.js"></script>
+  <script src="./game.js"></script>
+</body>
+</html>
+
